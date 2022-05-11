@@ -7,6 +7,8 @@ const GlobalStyles = createGlobalStyle`
   --white: #F2F2F2;
   --brown: #A64F03;
   --black: #0D0D0D;
+
+  --outside-padding: 1em;
 }
 
 html {

@@ -12,7 +12,7 @@ export const Navbar = styled.nav`
     max-height: 50px;
     margin: 0 auto;
 
-    padding: 1em;
+    padding: var(--outside-padding);
   }
 
   h1 {
