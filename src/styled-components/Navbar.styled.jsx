@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
 export const Navbar = styled.nav`
-  padding: 0;
-  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  padding: 1em;
   background-color: grey;
 `;
