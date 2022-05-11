@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
-export const Navbar = styled.nav`
-  background-color: var(--yellow);
+export const Navbar = styled.div`
+  background-color: var(--light-blue);
+  position: fixed;
+  width: 100%;
 
   nav {
     display: flex;

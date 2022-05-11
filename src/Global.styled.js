@@ -2,10 +2,10 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 :root {
-  --yellow: #F2CB05;
-  --orange: #F29F05;
+  --light-blue: #CEDEF2;
+  --blue: #2A708C;
+  --pink: #D9B2A9;
   --white: #F2F2F2;
-  --brown: #A64F03;
   --black: #0D0D0D;
 
   --outside-padding: 1em;
