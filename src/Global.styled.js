@@ -1,6 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
+:root {
+  --yellow: #F2CB05;
+  --orange: #F29F05;
+  --white: #F2F2F2;
+  --brown: #A64F03;
+  --black: #0D0D0D;
+}
+
 html {
     box-sizing: border-box;
 }
@@ -15,6 +23,8 @@ h1, h2, h3 {
 }
 
 body {
+  background-color: var(--white);
+  
   display: flex;
   flex-direction: column;
   

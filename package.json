@@ -12,9 +12,11 @@
   "author": "Mateusz Diak",
   "license": "ISC",
   "devDependencies": {
+    "buffer": "^6.0.3",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
-    "parcel": "^2.5.0"
+    "parcel": "^2.5.0",
+    "process": "^0.11.10"
   },
   "browserslist": [
     "last 2 Chrome versions"
