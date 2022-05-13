@@ -9,9 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAmazon } from "@fortawesome/free-brands-svg-icons";
 
 const Book = ({ book }) => {
-  // const main = useSelector((state) => state.main);
-  // const book = main.book;
-
   const getAmazonUrl = () => {
     return `https://www.amazon.co.uk/s?k=${book.isbn}`;
   };
@@ -25,14 +22,14 @@ const Book = ({ book }) => {
       <div className="selected-book">
         <BookMain>
           <BookInfo>
-            <p>
+            <div>
               <h2>{book.titleweb}</h2>
               <address>{book.authorweb}</address>
-            </p>
-            <p>
+            </div>
+            <div>
               <div>Pages: {book.pages}</div>
               <div>ISBN: {book.isbn}</div>
-            </p>
+            </div>
             <ButtonLink href={getAmazonUrl()} target="_blank">
               <span>Check out at</span>
               <FontAwesomeIcon icon={faAmazon} />

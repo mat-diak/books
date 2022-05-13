@@ -39,6 +39,10 @@ const SearchBar = styled.div`
     width: 100%;
   }
 
+  li:hover {
+    opacity: 0.5;
+  }
+
   h3 {
     font-size: 1rem;
   }

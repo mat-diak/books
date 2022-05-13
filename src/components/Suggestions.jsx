@@ -1,8 +1,6 @@
 import Gallery from "../styled-components/Gallery.styled";
 
 const Suggestions = ({ suggestions }) => {
-  console.log(suggestions);
-
   const getImgUrl = (isbn) => {
     return `https://reststop.randomhouse.com/resources/titles/${isbn}`;
   };
@@ -11,7 +9,7 @@ const Suggestions = ({ suggestions }) => {
     <Gallery>
       {suggestions.map((book) => {
         return (
-          <div>
+          <div key={book.isbn}>
             <img src={getImgUrl(book.isbn)} alt="" />
           </div>
         );
