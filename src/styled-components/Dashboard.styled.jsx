@@ -5,7 +5,7 @@ const Dashboard = styled.div`
   max-width: 1000px;
   min-height: 1000px;
   margin: 0 auto;
-  padding: 100px var(--outside-padding);
+  padding-top: 50px;
   gap: 5%;
 
   .selected-book {

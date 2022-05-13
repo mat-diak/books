@@ -7,6 +7,13 @@ const SearchBar = styled.div`
 
     position: relative;
     padding: 0.3em;
+    margin: auto;
+    margin-left: 0.5rem;
+
+    border: none;
+    outline: none;
+
+    background-color: transparent;
   }
 
   ul {
@@ -27,6 +34,7 @@ const SearchBar = styled.div`
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
+    width: 100%;
   }
 
   h3 {
@@ -45,6 +53,15 @@ const SearchBar = styled.div`
   img {
     width: 50px;
     height: 50px;
+  }
+
+  /* input */
+
+  .input-wrapper {
+    border: 2px solid var(--blue);
+    padding: 0.3em;
+    border-radius: 5px;
+    color: var(--blue);
   }
 `;
 

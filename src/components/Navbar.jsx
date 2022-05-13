@@ -5,7 +5,9 @@ const Navbar = () => {
   return (
     <NavbarEl>
       <nav>
-        <h1>BookScout</h1>
+        <h1>
+          <a href="/">BookScout</a>
+        </h1>
         <SearchBar />
       </nav>
     </NavbarEl>

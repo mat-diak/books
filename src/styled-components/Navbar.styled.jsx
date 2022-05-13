@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const Navbar = styled.div`
-  background-color: var(--light-blue);
+  background-color: rgb(240, 240, 240, 0.8);
+  border-bottom: 2px solid var(--light-blue);
+
   position: fixed;
   width: 100%;
 
@@ -17,6 +19,13 @@ export const Navbar = styled.div`
     padding: var(--outside-padding);
   }
 
-  h1 {
+  a {
+    text-decoration: none;
+    color: var(--blue);
+    display: block;
+
+    &:hover {
+      opacity: 0.5;
+    }
   }
 `;

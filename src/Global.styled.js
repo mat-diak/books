@@ -2,13 +2,16 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 :root {
-  --light-blue: #CEDEF2;
-  --blue: #2A708C;
-  --pink: #D9B2A9;
-  --white: #F2F2F2;
-  --black: #0D0D0D;
+  --light-blue: rgb(206, 222, 242);
+  --yellow: rgb(242, 183, 5);
+  --blue: rgb(42, 112, 140);
+  --pink: rgb(217, 178, 169);
+  --orange: rgb(242, 159, 5);
+  --white: rgb(242, 242, 242); 
+  --black: rgb(13, 13, 13);
 
   --outside-padding: 1em;
+  --main-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 html {
@@ -32,7 +35,7 @@ body {
   
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--main-font);
 }
 `;
 
