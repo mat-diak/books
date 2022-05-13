@@ -20,7 +20,9 @@ const SearchBar = styled.div`
     list-style-type: none;
     background-color: var(--white);
     border: 1px solid var(--black);
-    width: 400px;
+    border-top: none;
+    width: 437px;
+    min-height: 250px;
 
     margin: 0;
     padding: 0;

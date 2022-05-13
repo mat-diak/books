@@ -1,43 +1,64 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import axios from "../config/axios";
 
 import Navbar from "./Navbar";
 import Book from "./Book";
+import Suggestions from "./Suggestions";
 
 import DashboardStyled from "../styled-components/Dashboard.styled";
-
-import * as manyWorks from "../../scrap/manyWorks.json";
+import { useEffect } from "react";
 
 const Dashboard = () => {
-  const [saved, setSaved] = useState(manyWorks.work);
+  const main = useSelector((state) => state.main);
+  const book = main.book;
+  const [suggestions, setSuggestions] = useState([]);
 
-  // This request has inconsitent responses!!
-  // const testingFetchTitle = async () => {
-  //   let url = "https://reststop.randomhouse.com/resources/titles/9780593289136";
+  const titlesApiUrl =
+    "/resources/titles/?start=0&max=15&expandLevel=1&search=";
 
-  //   const config = {
-  //     headers: {
-  //       Accept: "application/json",
-  //       "Content-Type": "application/json",
-  //     },
-  //   };
+  const fetchSuggestions = async () => {
+    const res = await axios.get(titlesApiUrl + "knowledge");
 
-  //   const res = await axios.get(url, config);
+    setSuggestions(res.data.title);
+  };
 
-  //   console.log("Response from dashboard: ", res);
-  // };
-
-  // useEffect(() => {
-  //   testingFetchTitle();
-  // }, []);
+  useEffect(() => {
+    fetchSuggestions();
+  }, []);
 
   return (
     <>
       <Navbar />
       <DashboardStyled>
-        <Book />
+        {book ? (
+          <Book book={book} />
+        ) : (
+          <Suggestions suggestions={suggestions} />
+        )}
       </DashboardStyled>
     </>
   );
 };
 
 export default Dashboard;
+
+// This request has inconsitent responses!!?
+// const testingFetchTitle = async () => {
+//   let url = "https://reststop.randomhouse.com/resources/titles/9780593289136";
+
+//   const config = {
+//     headers: {
+//       Accept: "application/json",
+//       "Content-Type": "application/json",
+//     },
+//   };
+
+//   const res = await axios.get(url, config);
+
+//   console.log("Response from dashboard: ", res);
+// };
+
+// useEffect(() => {
+//   testingFetchTitle();
+// }, []);
