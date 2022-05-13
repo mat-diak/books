@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useMemo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
@@ -21,7 +22,10 @@ const SearchBar = () => {
     dispatch(fetchSearchBooks(query));
   };
 
-  const debouncedMakeQuery = debounce((query) => makeQuery(query), 1000);
+  const debouncedMakeQuery = useMemo(
+    () => debounce((query) => makeQuery(query), 1000),
+    []
+  );
 
   const getImageUrl = (isbn) => {
     return `https://reststop.randomhouse.com/resources/titles/${isbn}`;
