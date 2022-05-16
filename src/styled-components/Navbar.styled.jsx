@@ -1,23 +1,15 @@
 import styled from "styled-components";
 
-export const Navbar = styled.div`
-  background-color: rgb(240, 240, 240, 0.8);
-  border-bottom: 2px solid var(--light-blue);
-
-  position: fixed;
+export const Navbar = styled.nav`
   width: 100%;
 
-  nav {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-content: center;
-    max-width: 1000px;
-    max-height: 50px;
-    margin: 0 auto;
-
-    padding: var(--outside-padding);
-  }
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0.3em;
 
   a {
     text-decoration: none;
@@ -26,6 +18,18 @@ export const Navbar = styled.div`
 
     &:hover {
       opacity: 0.5;
+    }
+  }
+
+  h1 {
+    display: flex;
+    gap: 5%;
+    font-size: 1.5em;
+    opacity: 0.8;
+
+    svg {
+      color: var(--dark-blue);
+      opacity: 0.8;
     }
   }
 `;

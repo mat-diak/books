@@ -5,6 +5,7 @@ const GlobalStyles = createGlobalStyle`
   --light-blue: rgb(206, 222, 242);
   --yellow: rgb(242, 183, 5);
   --blue: rgb(42, 112, 140);
+  --dark-blue: rgb(11, 64, 85);
   --pink: rgb(217, 178, 169);
   --orange: rgb(242, 159, 5);
   --white: rgb(242, 242, 242); 

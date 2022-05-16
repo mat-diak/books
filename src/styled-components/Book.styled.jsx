@@ -9,7 +9,6 @@ export const BookMain = styled.div`
   display: flex;
   gap: 2%;
 
-  border-top: 2px solid var(--light-blue);
   padding-top: 3rem;
 
   .img {

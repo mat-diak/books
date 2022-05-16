@@ -3,14 +3,18 @@ import SearchBar from "./SearchBar";
 import OutsideClickHandler from "react-outside-click-handler";
 import { useDispatch } from "react-redux";
 import { close } from "../store/searchSlice";
+import { faBook } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { UnderlineLightBlue } from "../styled-components/Blocks.styled";
 
 const Navbar = () => {
   const dispatch = useDispatch();
 
   return (
-    <NavbarEl>
-      <nav>
+    <>
+      <NavbarEl>
         <h1>
+          <FontAwesomeIcon icon={faBook} />
           <a href="/">BookScout</a>
         </h1>
         <OutsideClickHandler
@@ -20,8 +24,9 @@ const Navbar = () => {
         >
           <SearchBar />
         </OutsideClickHandler>
-      </nav>
-    </NavbarEl>
+      </NavbarEl>
+      <UnderlineLightBlue />
+    </>
   );
 };
 

@@ -5,3 +5,7 @@ export const BlockLightBlue = styled.div`
 
   width: 100%;
 `;
+
+export const UnderlineLightBlue = styled.div`
+  border-bottom: 2px solid var(--light-blue);
+`;
