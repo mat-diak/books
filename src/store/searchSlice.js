@@ -23,8 +23,8 @@ export const searchSlice = createSlice({
   initialState,
   reducers: {
     reset: (state) => {
-      state.isLoading = false;
       state.query = "";
+      state.isLoading = false;
       state.matches = [];
       state.isOpen = false;
     },
@@ -38,6 +38,9 @@ export const searchSlice = createSlice({
     },
     updateQuery: (state, action) => {
       state.query = action.payload;
+      if (state.query.length === 0) {
+        state.isOpen = false;
+      }
     },
   },
   extraReducers: (builder) => {

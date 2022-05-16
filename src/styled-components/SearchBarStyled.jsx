@@ -13,7 +13,7 @@ const SearchBar = styled.div`
     border: none;
     outline: none;
 
-    background-color: transparent; */
+    background-color: transparent;
   }
 
   ul {
