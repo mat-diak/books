@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useMemo } from "react";
+import Spinner from "./Spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
@@ -59,7 +60,7 @@ const SearchBar = () => {
       {search.isOpen && (
         <ul>
           {search.isLoading ? (
-            <li>Loading...</li>
+            <Spinner />
           ) : (
             search.matches.map((title) => {
               return (

@@ -13,34 +13,39 @@ const SearchBar = styled.div`
     border: none;
     outline: none;
 
-    background-color: transparent;
+    background-color: transparent; */
   }
 
   ul {
     list-style-type: none;
-    background-color: var(--white);
-    border: 1px solid var(--black);
-    border-top: none;
+    background-color: var(--light-blue);
     width: 437px;
-    min-height: 250px;
 
     margin: 0;
     padding: 0;
     position: absolute;
+
     border-radius: 0 0 5px 5px;
+    border: 1px solid var(--blue);
+
+    z-index: -1;
+    margin-top: -3px;
   }
 
   li {
     margin-top: 1px;
     padding: 0.3em;
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: row;
     justify-content: flex-start;
+    align-items: center;
     width: 100%;
+    opacity: 0.9;
   }
 
   li:hover {
-    opacity: 0.5;
+    opacity: 0.6;
+    cursor: pointer;
   }
 
   h3 {
@@ -59,6 +64,7 @@ const SearchBar = styled.div`
   img {
     width: 50px;
     height: 50px;
+    object-fit: cover;
   }
 
   /* input */
