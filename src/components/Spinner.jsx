@@ -1,10 +1,12 @@
-import SpinnerStyled from "../styled-components/Spinner.styled";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import * as S from "../Styles";
 
 const Spinner = () => {
   return (
-    <SpinnerStyled>
-      <div className="loader">Loading...</div>
-    </SpinnerStyled>
+    <S.Shared.Spinner>
+      <FontAwesomeIcon icon={faCircleNotch} className="fa-spin" />
+    </S.Shared.Spinner>
   );
 };
 

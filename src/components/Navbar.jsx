@@ -1,4 +1,4 @@
-import { Navbar as NavbarEl } from "../styled-components/Navbar.styled";
+import * as S from "../Styles";
 import SearchBar from "./SearchBar";
 import OutsideClickHandler from "react-outside-click-handler";
 import { useDispatch } from "react-redux";
@@ -12,11 +12,13 @@ const Navbar = () => {
 
   return (
     <>
-      <NavbarEl>
-        <h1>
-          <FontAwesomeIcon icon={faBook} />
-          <a href="/">BookScout</a>
-        </h1>
+      <S.Navbar.Wrapper>
+        <S.Navbar.Heading href="/">
+          <h1>
+            <FontAwesomeIcon icon={faBook} />
+            BookScout
+          </h1>
+        </S.Navbar.Heading>
         <OutsideClickHandler
           onOutsideClick={() => {
             dispatch(close());
@@ -24,7 +26,7 @@ const Navbar = () => {
         >
           <SearchBar />
         </OutsideClickHandler>
-      </NavbarEl>
+      </S.Navbar.Wrapper>
       <UnderlineLightBlue />
     </>
   );

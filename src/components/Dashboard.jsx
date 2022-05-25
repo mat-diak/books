@@ -4,39 +4,21 @@ import axios from "../config/axios";
 
 import Navbar from "./Navbar";
 import Book from "./Book";
-import Suggestions from "./Suggestions";
 
-import DashboardStyled from "../styled-components/Dashboard.styled";
+import * as S from "../Styles";
 import { useEffect } from "react";
 
 const Dashboard = () => {
   const main = useSelector((state) => state.main);
   const book = main.book;
-  const [suggestions, setSuggestions] = useState([]);
 
   const titlesApiUrl =
     "/resources/titles/?start=0&max=15&expandLevel=1&search=";
 
-  const fetchSuggestions = async () => {
-    const res = await axios.get(titlesApiUrl + "knowledge");
-
-    setSuggestions(res.data.title);
-  };
-
-  useEffect(() => {
-    fetchSuggestions();
-  }, []);
-
   return (
     <>
       <Navbar />
-      <DashboardStyled>
-        {book ? (
-          <Book book={book} />
-        ) : (
-          <Suggestions suggestions={suggestions} />
-        )}
-      </DashboardStyled>
+      <S.Dashboard>{book ? <Book book={book} /> : null}</S.Dashboard>
     </>
   );
 };
