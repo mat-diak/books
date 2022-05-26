@@ -53,7 +53,12 @@ const SearchBar = () => {
           {search.isLoading ? (
             <Spinner />
           ) : search.query ? (
-            <FontAwesomeIcon icon={faXmark} onClick={() => dispatch(reset())} />
+            <S.Shared.Clickable>
+              <FontAwesomeIcon
+                icon={faXmark}
+                onClick={() => dispatch(reset())}
+              />
+            </S.Shared.Clickable>
           ) : (
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           )}

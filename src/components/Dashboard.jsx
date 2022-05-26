@@ -18,7 +18,9 @@ const Dashboard = () => {
   return (
     <>
       <Navbar />
-      <S.Dashboard>{book ? <Book book={book} /> : null}</S.Dashboard>
+      <S.Dashboard>
+        {book ? <Book key={book.isbn} book={book} /> : null}
+      </S.Dashboard>
     </>
   );
 };

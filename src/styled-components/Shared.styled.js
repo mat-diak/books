@@ -21,3 +21,10 @@ export const ButtonLink = styled.a`
 `;
 
 export const Spinner = styled.div``;
+
+export const Clickable = styled.div`
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+`;

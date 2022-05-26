@@ -1,6 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Roboto:wght@300&display=swap');
+
 :root {
   --light-blue: rgb(206, 222, 242);
   --yellow: rgb(242, 183, 5);
@@ -12,7 +14,8 @@ const GlobalStyles = createGlobalStyle`
   --black: rgb(13, 13, 13);
 
   --outside-padding: 1em;
-  --main-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-1: 'Roboto', sans-serif;
+  --font-2: 'Nunito', sans-serif;
 }
 
 html {
@@ -26,6 +29,7 @@ html {
 h1, h2, h3 {
   margin: 0;
   padding: 0;
+  font-family: var(--font-2);
 }
 
 body {
@@ -34,7 +38,7 @@ body {
   
   padding: 0;
   margin: 0;
-  font-family: var(--main-font);
+  font-family: var(--font-1);
 }
 
 @keyframes animate-fade {
