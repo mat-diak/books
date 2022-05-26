@@ -20,9 +20,4 @@ export const ButtonLink = styled.a`
   }
 `;
 
-export const Spinner = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1em;
-`;
+export const Spinner = styled.div``;

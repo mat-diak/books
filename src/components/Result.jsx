@@ -5,8 +5,6 @@ const Result = ({ title }) => {
     return `https://reststop.randomhouse.com/resources/titles/${isbn}`;
   };
 
-  console.log(title);
-
   return (
     <S.Result.Wrapper onClick={() => handleClick(title)} key={title.isbn}>
       <S.Result.Info>

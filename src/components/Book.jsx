@@ -2,6 +2,8 @@ import * as S from "../Styles.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAmazon } from "@fortawesome/free-brands-svg-icons";
 import FadeIn from "../styled-components/FadeIn.styled.js";
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 
 const Book = ({ book }) => {
   const getAmazonUrl = () => {
@@ -27,16 +29,18 @@ const Book = ({ book }) => {
                 <div>ISBN: {book.isbn}</div>
               </div>
               <S.Shared.ButtonLink href={getAmazonUrl()} target="_blank">
-                <span>Check out at</span>
                 <FontAwesomeIcon icon={faAmazon} />
+                Buy
+                <span></span>
               </S.Shared.ButtonLink>
+              <S.Book.Details id="details">
+                <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                  {book.flapcopy}
+                </ReactMarkdown>
+              </S.Book.Details>
             </S.Book.Info>
             <img src={getImgUrl()} alt="something" />
           </S.Book.Main>
-          <S.Book.Details id="details">
-            <h3>Description</h3>
-            <p>{book.flapcopy}</p>
-          </S.Book.Details>
         </div>
       </S.Book.Wrapper>
     </FadeIn>

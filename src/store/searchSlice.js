@@ -8,7 +8,7 @@ const initialState = {
   isOpen: false,
 };
 
-const titlesApiUrl = "/resources/titles/?start=0&max=5&expandLevel=1&search=";
+const titlesApiUrl = "/resources/titles/?start=0&max=10&expandLevel=1&search=";
 
 export const fetchSearchBooks = createAsyncThunk(
   "search/query",
@@ -46,13 +46,14 @@ export const searchSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchSearchBooks.pending, (state, action) => {
-        state.isOpen = true;
         state.isLoading = true;
       })
       .addCase(fetchSearchBooks.fulfilled, (state, action) => {
         if (action.payload.title) {
+          state.isOpen = true;
           state.matches = action.payload.title;
         } else {
+          state.isOpen = false;
           state.matches = [];
         }
         state.isLoading = false;
