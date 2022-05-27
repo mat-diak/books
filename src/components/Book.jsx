@@ -20,8 +20,8 @@ const Book = ({ book }) => {
       <S.Book.Wrapper>
         <S.Book.Details>
           <S.Book.Heading>
-            <h2>{book.titleweb}</h2>
-            <address>By {book.authorweb}</address>
+            <h2>{book.title}</h2>
+            <address>By {book.author}</address>
           </S.Book.Heading>
           <S.Shared.ButtonLink href={getAmazonUrl()} target="_blank">
             <span>See on</span>
@@ -30,7 +30,7 @@ const Book = ({ book }) => {
           <S.Blocks.Underline color="var(--green-1)" weight="5px" />
           <S.Book.Description id="details">
             <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-              {book.flapcopy}
+              {book.description}
             </ReactMarkdown>
           </S.Book.Description>
         </S.Book.Details>

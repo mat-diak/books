@@ -10,10 +10,24 @@ const initialState = {
 
 const titlesApiUrl = "/resources/titles/?start=0&max=10&expandLevel=1&search=";
 
+const restructureMatches = (matches) => {
+  return matches.map((title) => {
+    return {
+      author: title.authorweb,
+      title: title.titleweb,
+      workid: title.wordid,
+      description: title.flapcopy,
+      isbn: title.isbn,
+      pages: title.pages,
+    };
+  });
+};
+
 export const fetchSearchBooks = createAsyncThunk(
   "search/query",
   async (query) => {
     const res = await axios.get(titlesApiUrl + query);
+
     return res.data;
   }
 );
@@ -54,7 +68,7 @@ export const searchSlice = createSlice({
       .addCase(fetchSearchBooks.fulfilled, (state, action) => {
         if (action.payload.title) {
           state.isOpen = true;
-          state.matches = action.payload.title;
+          state.matches = restructureMatches(action.payload.title);
         } else {
           state.isOpen = false;
           state.matches = [];

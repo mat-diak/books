@@ -9,12 +9,12 @@ const Result = ({ title }) => {
   return (
     <S.Result.Wrapper onClick={() => handleClick(title)} key={title.isbn}>
       <S.Result.Info>
-        <S.Result.Title>{title.titleweb}</S.Result.Title>
-        <S.Result.Author>{title.authorweb}</S.Result.Author>
+        <S.Result.Title>{title.title}</S.Result.Title>
+        <S.Result.Author>{title.author}</S.Result.Author>
       </S.Result.Info>
       <S.Result.Thumbnail
         src={getImageUrl(title.isbn)}
-        alt={title.titleweb + "book cover image"}
+        alt={title.title + "book cover image"}
         onError={(e) => {
           e.target.onerror = null;
           e.target.src = thumbnailTemplate;
