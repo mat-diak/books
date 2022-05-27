@@ -6,6 +6,7 @@ import { close } from "../store/searchSlice";
 import { faBook } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { UnderlineLightBlue } from "../styled-components/Blocks.styled";
+import Logo from "../../public/icon.png";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -15,8 +16,8 @@ const Navbar = () => {
       <S.Navbar.Wrapper>
         <S.Navbar.Heading href="/">
           <h1>
-            <FontAwesomeIcon icon={faBook} />
-            BookScout
+            <img src={Logo} alt="Book scout logo" />
+            Books
           </h1>
         </S.Navbar.Heading>
         <OutsideClickHandler

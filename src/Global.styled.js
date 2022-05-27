@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-
 :root {
   --light-blue: rgb(206, 222, 242);
   --yellow: rgb(242, 183, 5);
@@ -9,11 +8,15 @@ const GlobalStyles = createGlobalStyle`
   --dark-blue: rgb(11, 64, 85);
   --pink: rgb(217, 178, 169);
   --orange: rgb(242, 159, 5);
-  --white: rgb(242, 242, 242); 
+  --white: rgb(242, 242, 242);
+  --light-grey: rgb(235, 235, 235);
+  --grey: rgb(186, 186, 186);
+  --dark-grey: rgb(139, 139, 139);
+  --light-black: rgb(58, 58, 58);
   --black: rgb(13, 13, 13);
 
   --outside-padding: 1em;
-  --font-1: 'Roboto', sans-serif;
+  --font-1: "Pangolin", sans-serif;
   --font-2: sans-serif;
 }
 

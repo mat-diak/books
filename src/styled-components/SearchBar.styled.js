@@ -5,11 +5,11 @@ export const Wrapper = styled.div``;
 export const InputWrapper = styled.div`
   display: flex;
   align-items: center;
-  background-color: var(--light-blue);
+  background-color: var(--light-grey);
+  color: var(--dark-grey);
 
   padding: 0.2em 0.5em;
   border-radius: 5px;
-  color: var(--blue);
 `;
 
 export const InputIcon = styled.div`
@@ -43,6 +43,7 @@ export const Input = styled.input`
   outline: none;
 
   background-color: transparent;
+  color: var(--light-black);
 
   &:focus::placeholder {
     color: transparent;

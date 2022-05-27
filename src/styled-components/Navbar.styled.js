@@ -13,7 +13,7 @@ export const Wrapper = styled.nav`
 
 export const Heading = styled.a`
   text-decoration: none;
-  color: var(--blue);
+  color: var(--dark-blue);
   display: block;
 
   &:hover {
@@ -22,13 +22,15 @@ export const Heading = styled.a`
 
   h1 {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 5%;
-    font-size: 1.5em;
     opacity: 0.8;
+    font-size: 22px;
 
-    svg {
-      color: var(--dark-blue);
-      opacity: 0.8;
+    img {
+      width: 38px;
+      height: 38px;
     }
   }
 `;
