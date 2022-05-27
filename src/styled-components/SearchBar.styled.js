@@ -5,8 +5,8 @@ export const Wrapper = styled.div``;
 export const InputWrapper = styled.div`
   display: flex;
   align-items: center;
-  background-color: var(--light-grey);
-  color: var(--dark-grey);
+  background-color: var(--grey-1);
+  color: var(--grey-2);
 
   padding: 0.2em 0.5em;
   border-radius: 5px;
@@ -43,7 +43,7 @@ export const Input = styled.input`
   outline: none;
 
   background-color: transparent;
-  color: var(--light-black);
+  color: var(--grey-3);
 
   &:focus::placeholder {
     color: transparent;

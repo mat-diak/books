@@ -18,7 +18,7 @@ import {
 import { selectTitle } from "../store/mainSlice";
 import debounce from "lodash.debounce";
 import * as S from "../Styles";
-import FadeIn from "../styled-components/FadeIn.styled";
+import * as Animation from "../styled-components/Animations.styled";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
@@ -52,21 +52,21 @@ const SearchBar = () => {
       <S.SearchBar.InputWrapper>
         <S.SearchBar.InputIcon>
           {search.isLoading ? (
-            <FadeIn key="1">
+            <Animation.FadeIn key="1">
               <FontAwesomeIcon icon={faCircleNotch} className="fa-spin" />
-            </FadeIn>
+            </Animation.FadeIn>
           ) : search.query ? (
-            <FadeIn key="2">
+            <Animation.FadeIn key="2">
               <FontAwesomeIcon
                 className="clickable"
                 icon={faXmark}
                 onClick={() => dispatch(reset())}
               />
-            </FadeIn>
+            </Animation.FadeIn>
           ) : (
-            <FadeIn key="3">
+            <Animation.FadeIn key="3">
               <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </FadeIn>
+            </Animation.FadeIn>
           )}
         </S.SearchBar.InputIcon>
         <S.SearchBar.Input

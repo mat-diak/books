@@ -2,22 +2,26 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 :root {
-  --light-blue: rgb(206, 222, 242);
-  --yellow: rgb(242, 183, 5);
-  --blue: rgb(42, 112, 140);
-  --dark-blue: rgb(11, 64, 85);
-  --pink: rgb(217, 178, 169);
-  --orange: rgb(242, 159, 5);
-  --white: rgb(242, 242, 242);
-  --light-grey: rgb(235, 235, 235);
-  --grey: rgb(186, 186, 186);
-  --dark-grey: rgb(139, 139, 139);
-  --light-black: rgb(58, 58, 58);
-  --black: rgb(13, 13, 13);
-
   --outside-padding: 1em;
   --font-1: "Karla", sans-serif;
   --font-2: "Lato", sans-serif;
+
+  --blue-1: #DCEAFF;
+  --blue-2: #5576D9;
+  --blue-3: #1D52F2;
+
+  --green-1: #BDF2ED;
+  
+  --orange-1: #F2DB94;
+  
+  --pink-2: #F2EAE4;
+  
+  --grey-1: #EEEEEE;
+  --grey-2: #8D8D8D;
+  --grey-3: #737373;
+
+  --black: #040404;
+
 }
 
 html {

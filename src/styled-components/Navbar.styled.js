@@ -13,7 +13,7 @@ export const Wrapper = styled.nav`
 
 export const Heading = styled.a`
   text-decoration: none;
-  color: var(--dark-blue);
+  color: var(--blue-3);
   display: block;
 
   &:hover {

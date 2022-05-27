@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
-export const BlockLightBlue = styled.div`
-  background-color: var(--light-blue);
-
-  width: 100%;
+export const UnderlineLightBlue = styled.div`
+  border-bottom: 1px solid var(--blue-1);
 `;
 
-export const UnderlineLightBlue = styled.div`
-  border-bottom: 1px solid var(--light-blue);
+export const Underline = styled.div`
+  border-bottom: ${({ weight }) => weight} solid ${({ color }) => color};
 `;

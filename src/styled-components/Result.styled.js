@@ -11,7 +11,7 @@ export const Group = styled.ul`
   position: absolute;
 
   border-radius: 5px;
-  border: 1px solid var(--white);
+  border: 1px solid var(--pink-2);
 
   z-index: 1;
   margin-top: 0px;
@@ -37,8 +37,8 @@ export const Wrapper = styled.li`
 
   &:hover {
     cursor: pointer;
-    background-color: var(--white);
-    border: 1px solid var(--light-blue);
+    background-color: var(--pink-2);
+    border: 1px solid var(--blue-1);
     transition: all 0.2s;
   }
 `;

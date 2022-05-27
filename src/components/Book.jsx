@@ -1,9 +1,10 @@
 import * as S from "../Styles.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAmazon } from "@fortawesome/free-brands-svg-icons";
-import FadeIn from "../styled-components/FadeIn.styled.js";
+import * as Animation from "../styled-components/Animations.styled.js";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import heroTemplate from "../../public/hero-template.png";
 
 const Book = ({ book }) => {
   const getAmazonUrl = () => {
@@ -15,35 +16,36 @@ const Book = ({ book }) => {
   };
 
   return (
-    <FadeIn>
+    <Animation.FadeIn>
       <S.Book.Wrapper>
-        <div className="selected-book">
-          <S.Book.Main>
-            <S.Book.Info>
-              <div>
-                <h2>{book.titleweb}</h2>
-                <address>{book.authorweb}</address>
-              </div>
-              <div>
-                <div>Pages: {book.pages}</div>
-                <div>ISBN: {book.isbn}</div>
-              </div>
-              <S.Shared.ButtonLink href={getAmazonUrl()} target="_blank">
-                <FontAwesomeIcon icon={faAmazon} />
-                Buy
-                <span></span>
-              </S.Shared.ButtonLink>
-              <S.Book.Details id="details">
-                <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-                  {book.flapcopy}
-                </ReactMarkdown>
-              </S.Book.Details>
-            </S.Book.Info>
-            <img src={getImgUrl()} alt="something" />
-          </S.Book.Main>
-        </div>
+        <S.Book.Details>
+          <S.Book.Heading>
+            <h2>{book.titleweb}</h2>
+            <address>By {book.authorweb}</address>
+          </S.Book.Heading>
+          <S.Shared.ButtonLink href={getAmazonUrl()} target="_blank">
+            <span>See on</span>
+            <FontAwesomeIcon icon={faAmazon} />
+          </S.Shared.ButtonLink>
+          <S.Blocks.Underline color="var(--green-1)" weight="5px" />
+          <S.Book.Description id="details">
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+              {book.flapcopy}
+            </ReactMarkdown>
+          </S.Book.Description>
+        </S.Book.Details>
+        <S.Book.HeroContainer>
+          <S.Book.Hero
+            src={getImgUrl()}
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = heroTemplate;
+            }}
+            alt="something"
+          />
+        </S.Book.HeroContainer>
       </S.Book.Wrapper>
-    </FadeIn>
+    </Animation.FadeIn>
   );
 };
 
