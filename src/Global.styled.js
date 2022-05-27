@@ -16,8 +16,8 @@ const GlobalStyles = createGlobalStyle`
   --black: rgb(13, 13, 13);
 
   --outside-padding: 1em;
-  --font-1: "Pangolin", sans-serif;
-  --font-2: sans-serif;
+  --font-1: "Karla", sans-serif;
+  --font-2: "Lato", sans-serif;
 }
 
 html {
@@ -32,6 +32,7 @@ h1, h2, h3 {
   margin: 0;
   padding: 0;
   font-family: var(--font-1);
+  font-weight: 900;
 }
 
 body {
