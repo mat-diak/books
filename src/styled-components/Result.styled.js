@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Group = styled.ul`
   list-style-type: none;
-  width: 435px;
+  width: 441px;
   max-height: 300px;
   overflow-y: auto;
 
@@ -63,6 +63,7 @@ export const Title = styled.h3`
 `;
 
 export const Author = styled.address`
-  font-size: 0.75rem;
+  font-size: 0.8rem;
+  opacity: 0.6;
   font-style: normal;
 `;

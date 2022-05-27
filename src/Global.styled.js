@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Roboto:wght@300&display=swap');
 
 :root {
   --light-blue: rgb(206, 222, 242);
@@ -15,7 +14,7 @@ const GlobalStyles = createGlobalStyle`
 
   --outside-padding: 1em;
   --font-1: 'Roboto', sans-serif;
-  --font-2: 'Nunito', sans-serif;
+  --font-2: sans-serif;
 }
 
 html {
@@ -29,7 +28,7 @@ html {
 h1, h2, h3 {
   margin: 0;
   padding: 0;
-  font-family: var(--font-2);
+  font-family: var(--font-1);
 }
 
 body {
@@ -38,7 +37,7 @@ body {
   
   padding: 0;
   margin: 0;
-  font-family: var(--font-1);
+  font-family: var(--font-2);
 }
 
 @keyframes animate-fade {

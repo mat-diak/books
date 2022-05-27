@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useMemo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMagnifyingGlass,
+  faXmark,
+  faCircleNotch,
+} from "@fortawesome/free-solid-svg-icons";
 import ResultsList from "./ResultsList";
-import Spinner from "./Spinner";
-import FadeIn from "../styled-components/FadeIn.styled";
 
 import {
   fetchSearchBooks,
@@ -16,12 +18,11 @@ import {
 import { selectTitle } from "../store/mainSlice";
 import debounce from "lodash.debounce";
 import * as S from "../Styles";
+import FadeIn from "../styled-components/FadeIn.styled";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
   const search = useSelector((state) => state.search);
-
-  console.log(search.matches);
 
   const makeQuery = (query) => {
     dispatch(fetchSearchBooks(query));
@@ -51,16 +52,21 @@ const SearchBar = () => {
       <S.SearchBar.InputWrapper>
         <S.SearchBar.InputIcon>
           {search.isLoading ? (
-            <Spinner />
+            <FadeIn key="1">
+              <FontAwesomeIcon icon={faCircleNotch} className="fa-spin" />
+            </FadeIn>
           ) : search.query ? (
-            <S.Shared.Clickable>
+            <FadeIn key="2">
               <FontAwesomeIcon
+                className="clickable"
                 icon={faXmark}
                 onClick={() => dispatch(reset())}
               />
-            </S.Shared.Clickable>
+            </FadeIn>
           ) : (
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            <FadeIn key="3">
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </FadeIn>
           )}
         </S.SearchBar.InputIcon>
         <S.SearchBar.Input

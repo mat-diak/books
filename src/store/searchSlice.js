@@ -40,6 +40,9 @@ export const searchSlice = createSlice({
       state.query = action.payload;
       if (state.query.length === 0) {
         state.isOpen = false;
+        state.isLoading = false;
+      } else {
+        state.isLoading = true;
       }
     },
   },

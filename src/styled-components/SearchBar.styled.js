@@ -5,21 +5,30 @@ export const Wrapper = styled.div``;
 export const InputWrapper = styled.div`
   display: flex;
   align-items: center;
+  background-color: var(--light-blue);
 
-  border: 2px solid var(--blue);
-
-  padding: 0 0.3em;
+  padding: 0.2em 0.5em;
   border-radius: 5px;
   color: var(--blue);
-
-  svg {
-    width: 100%;
-  }
 `;
 
 export const InputIcon = styled.div`
-  height: 20px;
   width: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+
+  animation-duration: 0.5s;
+  animation-name: animate-fade;
+  animation-delay: 0.2s;
+  animation-fill-mode: backwards;
+
+  .clickable:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 `;
 
 export const Input = styled.input`
@@ -27,9 +36,8 @@ export const Input = styled.input`
   border-radius: 5px;
   min-height: 30px;
   position: relative;
-  padding-left: 0.1em;
   margin: auto;
-  margin-left: 0.1rem;
+  margin-left: 0.3rem;
   font-size: 1rem;
   border: none;
   outline: none;
