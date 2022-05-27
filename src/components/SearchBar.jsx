@@ -47,6 +47,8 @@ const SearchBar = () => {
     dispatch(close());
   };
 
+  console.log("Beatiful matches", search.matches);
+
   return (
     <S.SearchBar.Wrapper>
       <S.SearchBar.InputWrapper>

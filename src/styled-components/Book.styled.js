@@ -3,15 +3,12 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   max-width: 1000px;
   gap: 2%;
-
-  /* ----- */
-  /* background-color: red; */
 `;
 
 export const HeroContainer = styled.div`
-  flex-basis: 50%;
   border-left: 1px solid var(--pink-2);
   border-right: 1px solid var(--pink-2);
   border-bottom: 5px solid var(--pink-2);
@@ -29,9 +26,6 @@ export const Hero = styled.img`
   object-fit: contain;
 
   box-shadow: 10px 10px var(--blue-2);
-
-  /* ------ */
-  /* background-color: green; */
 `;
 
 export const Details = styled.div`
@@ -41,9 +35,6 @@ export const Details = styled.div`
   gap: 5%;
   order: 1;
   padding-left: 3em;
-
-  /* ---- */
-  /* background-color: blue; */
 `;
 
 export const Heading = styled.div`

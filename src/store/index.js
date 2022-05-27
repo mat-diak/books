@@ -1,7 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { mainSlice } from "./mainSlice";
 import { searchSlice } from "./searchSlice";
+import { apiSlice } from "./apiSlice";
 
 export const store = configureStore({
-  reducer: { search: searchSlice.reducer, main: mainSlice.reducer },
+  reducer: {
+    api: apiSlice.reducer,
+    search: searchSlice.reducer,
+    main: mainSlice.reducer,
+  },
 });

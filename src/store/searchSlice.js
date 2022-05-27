@@ -10,12 +10,23 @@ const initialState = {
 
 const titlesApiUrl = "/resources/titles/?start=0&max=10&expandLevel=1&search=";
 
+const flattenAuthorsIds = (authorsIds) => {
+  if (Array.isArray(authorsIds)) {
+    return authorsIds.map((authorId) => {
+      return authorId["$"];
+    });
+  } else {
+    return [authorsIds["$"]];
+  }
+};
+
 const restructureMatches = (matches) => {
   return matches.map((title) => {
     return {
-      author: title.authorweb,
       title: title.titleweb,
-      workid: title.wordid,
+      workid: title.workid,
+      author: title.authorweb,
+      authorId: flattenAuthorsIds(title.authors.authorId),
       description: title.flapcopy,
       isbn: title.isbn,
       pages: title.pages,
@@ -27,7 +38,6 @@ export const fetchSearchBooks = createAsyncThunk(
   "search/query",
   async (query) => {
     const res = await axios.get(titlesApiUrl + query);
-
     return res.data;
   }
 );
