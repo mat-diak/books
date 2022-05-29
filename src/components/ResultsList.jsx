@@ -8,12 +8,12 @@ const ResultsList = () => {
 
   return (
     <>
-      <S.Result.Group>
+      <S.Result.SearchResults>
         {!search.isLoading &&
           search.matches.map((title) => (
             <Result key={title.isbn} title={title} />
           ))}
-      </S.Result.Group>
+      </S.Result.SearchResults>
     </>
   );
 };

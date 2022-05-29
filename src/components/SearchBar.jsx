@@ -47,8 +47,6 @@ const SearchBar = () => {
     dispatch(close());
   };
 
-  console.log("Beatiful matches", search.matches);
-
   return (
     <S.SearchBar.Wrapper>
       <S.SearchBar.InputWrapper>
@@ -76,7 +74,6 @@ const SearchBar = () => {
           placeholder="Quick search"
           value={search.query}
           onChange={handleChange}
-          onBlur={handleChange}
           onClick={() => dispatch(open())}
         />
       </S.SearchBar.InputWrapper>

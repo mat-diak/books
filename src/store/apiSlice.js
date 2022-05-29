@@ -33,7 +33,7 @@ export const apiSlice = createSlice({
       })
       .addCase(getBooksByAuthor.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.results = action.payload;
+        state.results = action.payload.title;
       });
   },
 });
