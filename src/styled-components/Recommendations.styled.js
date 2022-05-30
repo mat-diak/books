@@ -24,11 +24,73 @@ export const Button = styled.button`
 `;
 
 export const Gallery = styled.div`
-  background-color: red;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2%;
+
+  margin-top: 3rem;
+  padding: 1rem;
+  max-width: 1000px;
+`;
+
+export const ImageWrapper = styled.div`
+  position: relative;
+
+  &:hover div#overlay {
+    height: 100%;
+    bottom: 0;
+  }
 `;
 
 export const Image = styled.img`
-  max-height: 300px;
+  width: 200px;
+  height: 300px;
+  object-fit: contain;
+  box-shadow: 5px 5px var(--green-1);
+  display: block;
+
+  margin: 1em;
+  border: 2px solid var(--pink-2);
+`;
+
+export const DetailsOverlay = styled.div`
+  background-color: var(--blue-2);
+  color: var(--grey-1);
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  height: 0;
+  transition: 0.5s ease;
+`;
+
+export const Heading = styled.div`
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    font-family: var(--font-1);
+    font-size: 1.5rem;
+    margin: 0 1em;
+  }
+
+  address {
+    font-family: var(--font-2);
+    font-style: normal;
+    font-size: 90%;
+
+    margin-top: 0.5rem;
+
+    opacity: 0.6;
+    text-align: right;
+    margin: 0.3em 1em;
+  }
 `;
 
 export const ChoiceWrapper = styled.div`

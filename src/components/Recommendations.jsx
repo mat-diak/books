@@ -1,6 +1,7 @@
 import Button from "./Button";
 import * as S from "../Styles";
 import { useSelector } from "react-redux";
+import { getImgUrl } from "../helpers";
 
 const Recommendations = () => {
   const { tags, results } = useSelector((state) => state.recommendations);
@@ -19,7 +20,20 @@ const Recommendations = () => {
       </S.Recommendations.ChoiceWrapper>
       <S.Recommendations.Gallery>
         {results.map((book) => {
-          return <div>{book.titleweb}</div>;
+          return (
+            <S.Recommendations.ImageWrapper>
+              <S.Recommendations.Image
+                src={getImgUrl(book.isbn)}
+                key={book.isbn}
+              />
+              <S.Recommendations.DetailsOverlay id="overlay">
+                <S.Recommendations.Heading>
+                  <h3>{book.titleweb}</h3>
+                  <address>{book.authorweb}</address>
+                </S.Recommendations.Heading>
+              </S.Recommendations.DetailsOverlay>
+            </S.Recommendations.ImageWrapper>
+          );
         })}
       </S.Recommendations.Gallery>
     </div>
