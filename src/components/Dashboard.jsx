@@ -1,25 +1,20 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
-import axios from "../config/axios";
 
 import Navbar from "./Navbar";
 import Book from "./Book";
+import Recommendations from "./Recommendations";
 
 import * as S from "../Styles";
-import { useEffect } from "react";
 
 const Dashboard = () => {
   const main = useSelector((state) => state.main);
   const book = main.book;
 
-  const titlesApiUrl =
-    "/resources/titles/?start=0&max=15&expandLevel=1&search=";
-
   return (
     <>
       <Navbar />
       <S.Dashboard>
-        {book ? <Book key={book.isbn} book={book} /> : null}
+        {book ? <Book key={book.isbn} book={book} /> : <Recommendations />}
       </S.Dashboard>
     </>
   );
@@ -28,6 +23,8 @@ const Dashboard = () => {
 export default Dashboard;
 
 // This request has inconsitent responses!!?
+// const titlesApiUrl =
+// "/resources/titles/?start=0&max=15&expandLevel=1&search=";
 // const testingFetchTitle = async () => {
 //   let url = "https://reststop.randomhouse.com/resources/titles/9780593289136";
 

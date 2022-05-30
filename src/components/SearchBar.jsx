@@ -19,6 +19,7 @@ import { selectTitle } from "../store/mainSlice";
 import debounce from "lodash.debounce";
 import * as S from "../Styles";
 import * as Animation from "../styled-components/Animations.styled";
+import OutsideClickHandler from "react-outside-click-handler/build/OutsideClickHandler";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
@@ -76,11 +77,18 @@ const SearchBar = () => {
           placeholder="Quick search"
           value={search.query}
           onChange={handleChange}
-          onBlur={handleChange}
           onClick={() => dispatch(open())}
         />
       </S.SearchBar.InputWrapper>
-      {search.isOpen && <ResultsList />}
+      {search.isOpen && (
+        <OutsideClickHandler
+          onOutsideClick={() => {
+            dispatch(close());
+          }}
+        >
+          <ResultsList />
+        </OutsideClickHandler>
+      )}
     </S.SearchBar.Wrapper>
   );
 };

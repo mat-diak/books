@@ -47,6 +47,7 @@ export const searchSlice = createSlice({
   initialState,
   reducers: {
     reset: (state) => {
+      console.log("reseting");
       state.query = "";
       state.isLoading = false;
       state.matches = [];
