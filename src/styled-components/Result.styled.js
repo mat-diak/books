@@ -2,19 +2,21 @@ import styled from "styled-components";
 
 export const Group = styled.ul`
   list-style-type: none;
-  width: 441px;
-  max-height: 300px;
-  overflow-y: auto;
-
   margin: 0;
   padding: 0;
-  position: absolute;
 
   border-radius: 5px;
   border: 1px solid var(--pink-2);
 
-  z-index: 1;
   margin-top: 0px;
+`;
+
+export const SearchResults = styled(Group)`
+  width: 441px;
+  max-height: 300px;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 1;
 
   &::-webkit-scrollbar {
     display: none;

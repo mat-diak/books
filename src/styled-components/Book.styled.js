@@ -6,9 +6,10 @@ export const Wrapper = styled.div`
   justify-content: center;
   max-width: 1000px;
   gap: 2%;
+  margin-bottom: 3rem;
 `;
 
-export const HeroContainer = styled.div`
+export const CoverContainer = styled.div`
   border-left: 1px solid var(--pink-2);
   border-right: 1px solid var(--pink-2);
   border-bottom: 5px solid var(--pink-2);
@@ -21,7 +22,6 @@ export const HeroContainer = styled.div`
 
 export const Hero = styled.img`
   margin: auto;
-  display: block;
   max-height: 500px;
   object-fit: contain;
 
@@ -59,7 +59,7 @@ export const Heading = styled.div`
   }
 `;
 
-export const Description = styled.p`
+export const Description = styled.div`
   margin-top: 0;
   border-radius: 5px;
   color: var(--black);

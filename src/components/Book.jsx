@@ -8,18 +8,12 @@ import heroTemplate from "../../public/hero-template.png";
 import { getBooksByAuthor } from "../store/apiSlice.js";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import Suggestions from "./Suggestions.jsx";
+import { getAmazonUrl, getImgUrl } from "../helpers.js";
 
 const Book = ({ book }) => {
   const bookSuggestions = useSelector((state) => state.api);
   const dispatch = useDispatch();
-
-  const getAmazonUrl = () => {
-    return `https://www.amazon.co.uk/s?k=${book.isbn}`;
-  };
-
-  const getImgUrl = () => {
-    return `https://reststop.randomhouse.com/resources/titles/${book.isbn}`;
-  };
 
   useEffect(() => {
     dispatch(getBooksByAuthor(book.authorId[0]));
@@ -33,7 +27,7 @@ const Book = ({ book }) => {
             <h2>{book.title}</h2>
             <address>By {book.author}</address>
           </S.Book.Heading>
-          <S.Shared.ButtonLink href={getAmazonUrl()} target="_blank">
+          <S.Shared.ButtonLink href={getAmazonUrl(book.isbn)} target="_blank">
             <span>See on</span>
             <FontAwesomeIcon icon={faAmazon} />
           </S.Shared.ButtonLink>
@@ -44,17 +38,18 @@ const Book = ({ book }) => {
             </ReactMarkdown>
           </S.Book.Description>
         </S.Book.Details>
-        <S.Book.HeroContainer>
+        <S.Book.CoverContainer>
           <S.Book.Hero
-            src={getImgUrl()}
+            src={getImgUrl(book.isbn)}
             onError={(e) => {
               e.target.onerror = null;
               e.target.src = heroTemplate;
             }}
             alt="something"
           />
-        </S.Book.HeroContainer>
+        </S.Book.CoverContainer>
       </S.Book.Wrapper>
+      <Suggestions items={bookSuggestions.results} />
     </Animation.FadeIn>
   );
 };
