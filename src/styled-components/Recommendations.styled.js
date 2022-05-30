@@ -63,20 +63,19 @@ export const DetailsOverlay = styled.div`
   overflow: hidden;
   height: 0;
   transition: 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 `;
 
 export const Heading = styled.div`
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   width: fit-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
   h3 {
     font-family: var(--font-1);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin: 0 1em;
   }
 
