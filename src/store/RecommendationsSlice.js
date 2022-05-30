@@ -1,9 +1,10 @@
 import axios from "../config/axios";
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
+import { restructureResponse } from "../helpers/apiResponseStructure";
 
 const initialState = {
   results: [],
-  categories: {},
+  categories: [],
   isLoading: false,
   tags: [
     "Classics",
@@ -28,10 +29,20 @@ export const getBooksByTheme = createAsyncThunk(
   "suggestionsByTheme/query",
   async (theme) => {
     const res = await axios.get(titlesApiUrl + theme);
-
     return res.data;
   }
 );
+
+const filterOutCategory = (results, category) => {
+  return results.filter((result) => {
+    let regex = new RegExp(`${category.toLowerCase()}`);
+    let newThemes = result.themes.map((theme) =>
+      regex.test(theme) ? category.toLowerCase() : theme
+    );
+
+    return !newThemes.includes(category.toLowerCase());
+  });
+};
 
 export const recommendationsSlice = createSlice({
   name: "suggestionsByTheme",
@@ -42,17 +53,30 @@ export const recommendationsSlice = createSlice({
       state.results = [];
       state.categories = {};
     },
+    removeCategory: (state, action) => {
+      state.results = filterOutCategory(current(state.results), action.payload);
+      state.categories = current(state.categories).filter(
+        (category) => !category === action.payload
+      );
+    },
+    addCategory: (state, action) => {
+      state.categories.push(action.payload);
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(getBooksByTheme.pending, (state, action) => {
+        console.log(action);
         state.isLoading = true;
       })
       .addCase(getBooksByTheme.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.results = [...state.results, ...action.payload.title];
+        state.results = [
+          ...state.results,
+          ...restructureResponse(action.payload.title),
+        ];
       });
   },
 });
 
-export const { reset } = recommendationsSlice.actions;
+export const { reset, removeCategory } = recommendationsSlice.actions;

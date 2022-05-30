@@ -1,12 +1,13 @@
 import Button from "./Button";
 import * as S from "../Styles";
-import { useSelector } from "react-redux";
-import { getImgUrl } from "../helpers";
+import { useDispatch, useSelector } from "react-redux";
+import { getImgUrl } from "../helpers/links";
+import { selectTitle } from "../store/mainSlice";
+import * as Animation from "../styled-components/Animations.styled";
 
 const Recommendations = () => {
   const { tags, results } = useSelector((state) => state.recommendations);
-
-  console.log("Recommendations", results);
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -18,24 +19,32 @@ const Recommendations = () => {
           <Button tag={tag} key={tag} />
         ))}
       </S.Recommendations.ChoiceWrapper>
-      <S.Recommendations.Gallery>
-        {results.map((book) => {
-          return (
-            <S.Recommendations.ImageWrapper>
-              <S.Recommendations.Image
-                src={getImgUrl(book.isbn)}
+      <Animation.FadeIn>
+        <S.Recommendations.Gallery>
+          {results.map((book) => {
+            return (
+              <S.Recommendations.ImageWrapper
                 key={book.isbn}
-              />
-              <S.Recommendations.DetailsOverlay id="overlay">
-                <S.Recommendations.Heading>
-                  <h3>{book.titleweb}</h3>
-                  <address>{book.authorweb}</address>
-                </S.Recommendations.Heading>
-              </S.Recommendations.DetailsOverlay>
-            </S.Recommendations.ImageWrapper>
-          );
-        })}
-      </S.Recommendations.Gallery>
+                onClick={() => dispatch(selectTitle(book))}
+              >
+                <S.Recommendations.Image
+                  src={getImgUrl(book.isbn)}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = thumbnailTemplate;
+                  }}
+                />
+                <S.Recommendations.DetailsOverlay id="overlay">
+                  <S.Recommendations.Heading>
+                    <h3>{book.title}</h3>
+                    <address>{book.author}</address>
+                  </S.Recommendations.Heading>
+                </S.Recommendations.DetailsOverlay>
+              </S.Recommendations.ImageWrapper>
+            );
+          })}
+        </S.Recommendations.Gallery>
+      </Animation.FadeIn>
     </div>
   );
 };

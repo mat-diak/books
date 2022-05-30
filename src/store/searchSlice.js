@@ -1,5 +1,6 @@
 import axios from "../config/axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { restructureResponse } from "../helpers/apiResponseStructure";
 
 const initialState = {
   query: "",
@@ -9,30 +10,6 @@ const initialState = {
 };
 
 const titlesApiUrl = "/resources/titles/?start=0&max=10&expandLevel=1&search=";
-
-const flattenAuthorsIds = (authorsIds) => {
-  if (Array.isArray(authorsIds)) {
-    return authorsIds.map((authorId) => {
-      return authorId["$"];
-    });
-  } else {
-    return [authorsIds["$"]];
-  }
-};
-
-const restructureMatches = (matches) => {
-  return matches.map((title) => {
-    return {
-      title: title.titleweb,
-      workid: title.workid,
-      author: title.authorweb,
-      authorId: flattenAuthorsIds(title.authors.authorId),
-      description: title.flapcopy,
-      isbn: title.isbn,
-      pages: title.pages,
-    };
-  });
-};
 
 export const fetchSearchBooks = createAsyncThunk(
   "search/query",
@@ -47,7 +24,6 @@ export const searchSlice = createSlice({
   initialState,
   reducers: {
     reset: (state) => {
-      console.log("reseting");
       state.query = "";
       state.isLoading = false;
       state.matches = [];
@@ -79,7 +55,7 @@ export const searchSlice = createSlice({
       .addCase(fetchSearchBooks.fulfilled, (state, action) => {
         if (action.payload.title) {
           state.isOpen = true;
-          state.matches = restructureMatches(action.payload.title);
+          state.matches = restructureResponse(action.payload.title);
         } else {
           state.isOpen = false;
           state.matches = [];

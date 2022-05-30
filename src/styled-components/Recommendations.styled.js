@@ -66,6 +66,10 @@ export const DetailsOverlay = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Heading = styled.div`
@@ -84,7 +88,7 @@ export const Heading = styled.div`
     font-style: normal;
     font-size: 90%;
 
-    margin-top: 0.5rem;
+    padding-top: 1em;
 
     opacity: 0.6;
     text-align: right;
