@@ -23,7 +23,8 @@ const initialState = {
   },
 };
 
-const titlesApiUrl = "/resources/titles/?start=0&max=1000&expandLevel=1&theme=";
+const titlesApiUrl =
+  "/resources/titles/?start=0&max=50000&expandLevel=1&theme=";
 
 export const getBooksByTheme = createAsyncThunk(
   "suggestionsByTheme/query",
@@ -32,17 +33,6 @@ export const getBooksByTheme = createAsyncThunk(
     return res.data;
   }
 );
-
-const filterOutCategory = (results, category) => {
-  return results.filter((result) => {
-    let regex = new RegExp(`${category.toLowerCase()}`);
-    let newThemes = result.themes.map((theme) =>
-      regex.test(theme) ? category.toLowerCase() : theme
-    );
-
-    return !newThemes.includes(category.toLowerCase());
-  });
-};
 
 const score = (result, desiredThemes) => {
   let score = 0;
@@ -64,19 +54,42 @@ const giveScore = (results, desiredThemes) => {
 };
 
 function getUniqueByProperty(property) {
-  let workIds = [];
+  let values = [];
   let unique = [];
 
   this.forEach((book) => {
-    if (!workIds.includes(book[property])) {
-      workIds.push(book[property]);
+    if (!values.includes(book[property])) {
+      values.push(book[property]);
       unique.push(book);
     }
   });
   return unique;
 }
 
+function includesAnyOf(array) {
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    if (this.includes(element)) return true;
+  }
+  return false;
+}
+
+Array.prototype.includesAnyOf = includesAnyOf;
 Array.prototype.getUniqueByProperty = getUniqueByProperty;
+
+const filterOutCategory = (results, category, leftoverCategories) => {
+  return results.filter((result) => {
+    let regex = new RegExp(`${category.toLowerCase()}`);
+    let newThemes = result.themes.map((theme) =>
+      regex.test(theme) ? category.toLowerCase() : theme
+    );
+
+    return (
+      !newThemes.includes(category.toLowerCase()) ||
+      newThemes.includesAnyOf(leftoverCategories)
+    );
+  });
+};
 
 export const recommendationsSlice = createSlice({
   name: "suggestionsByTheme",
@@ -88,9 +101,13 @@ export const recommendationsSlice = createSlice({
       state.categories = {};
     },
     removeCategory: (state, action) => {
-      state.results = filterOutCategory(current(state.results), action.payload);
-      state.categories = current(state.categories).filter(
-        (category) => !category === action.payload
+      state.categories = [...state.categories].filter((category) => {
+        return category !== action.payload;
+      });
+      state.results = filterOutCategory(
+        current(state.results),
+        action.payload,
+        state.categories
       );
     },
     addCategory: (state, action) => {
@@ -112,8 +129,7 @@ export const recommendationsSlice = createSlice({
           state.categories
         )
           .getUniqueByProperty("workid")
-          .sort((a, b) => b.score - a.score)
-          .splice(0, 20);
+          .sort((a, b) => b.score - a.score);
       });
   },
 });

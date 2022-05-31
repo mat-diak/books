@@ -47,7 +47,7 @@ export const Gallery = styled.div`
   gap: 1em;
 
   margin-top: 3rem;
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
   max-width: 1000px;
 `;
 
