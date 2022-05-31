@@ -9,8 +9,6 @@ const Recommendations = () => {
   const { tags, results } = useSelector((state) => state.recommendations);
   const dispatch = useDispatch();
 
-  console.log(results);
-
   return (
     <div>
       <S.Recommendations.Header>

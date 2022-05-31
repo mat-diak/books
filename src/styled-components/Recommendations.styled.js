@@ -14,6 +14,7 @@ export const Button = styled.button`
     props.selected ? "var(--green-1)" : "transparent"};
   border-radius: 5px;
   padding: 0.5em;
+  position: relative;
 
   &:hover {
     transform: scale(1.1);
@@ -21,7 +22,23 @@ export const Button = styled.button`
     cursor: pointer;
   }
 
+  &:active {
+    background-color: var(--green-2);
+  }
+
   transition: all 0.2s;
+`;
+
+export const ButtonText = styled.div`
+  color: ${(props) => (props.isLoading ? "var(--green-1)" : "inherit")};
+`;
+
+export const LoadingOverlay = styled.div`
+  position: absolute;
+  margin: auto;
+  width: 100%;
+  color: var(--blue-3);
+  margin-left: -7px;
 `;
 
 export const Gallery = styled.div`
@@ -76,7 +93,7 @@ export const DetailsOverlay = styled.div`
 export const Heading = styled.div`
   margin-top: 1rem;
   margin-bottom: 1rem;
-  width: fit-content;
+  width: 100%;
 
   h3 {
     font-family: var(--font-1);
@@ -94,6 +111,11 @@ export const Heading = styled.div`
     opacity: 0.6;
     text-align: right;
     margin: 0.3em 1em;
+  }
+
+  div {
+    background-color: var(--blue-3);
+    padding: 5px;
   }
 `;
 

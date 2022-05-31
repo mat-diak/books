@@ -24,14 +24,24 @@ const Button = ({ tag }) => {
   };
 
   return (
-    <S.Recommendations.Button onClick={handleClick} selected={tags[tag]}>
-      {isLoading && categories.includes(tag) ? (
-        <Animation.FadeIn key="1">
-          <FontAwesomeIcon icon={faCircleNotch} className="fa-spin" />
-        </Animation.FadeIn>
-      ) : (
-        tag
-      )}
+    <S.Recommendations.Button
+      onClick={handleClick}
+      selected={tags[tag]}
+      disabled={isLoading}
+    >
+      <S.Recommendations.LoadingOverlay>
+        {isLoading && categories.at(-1) === tag && (
+          <Animation.FadeIn key="1">
+            <FontAwesomeIcon icon={faCircleNotch} className="fa-spin" />
+          </Animation.FadeIn>
+        )}
+      </S.Recommendations.LoadingOverlay>
+      <S.Recommendations.ButtonText
+        className="content"
+        isLoading={isLoading && categories.at(-1) === tag}
+      >
+        {tag}
+      </S.Recommendations.ButtonText>
     </S.Recommendations.Button>
   );
 };
