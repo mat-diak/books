@@ -9,13 +9,15 @@ const Recommendations = () => {
   const { tags, results } = useSelector((state) => state.recommendations);
   const dispatch = useDispatch();
 
+  console.log(results);
+
   return (
     <div>
       <S.Recommendations.Header>
         What are you interested in?
       </S.Recommendations.Header>
       <S.Recommendations.ChoiceWrapper>
-        {tags.map((tag) => (
+        {Object.keys(tags).map((tag) => (
           <Button tag={tag} key={tag} />
         ))}
       </S.Recommendations.ChoiceWrapper>

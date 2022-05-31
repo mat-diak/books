@@ -6,24 +6,24 @@ const initialState = {
   results: [],
   categories: [],
   isLoading: false,
-  tags: [
-    "Classics",
-    "Fantasy",
-    "Adventure",
-    "Mystery",
-    "Horror",
-    "Science",
-    "Art",
-    "Self-Discovery",
-    "Health",
-    "History",
-    "Family",
-    "Humor",
-    "Love",
-  ],
+  tags: {
+    Classics: false,
+    Fantasy: false,
+    Adventure: false,
+    Mystery: false,
+    Horror: false,
+    Science: false,
+    Art: false,
+    "Self-Discovery": false,
+    Health: false,
+    History: false,
+    Family: false,
+    Humor: false,
+    Love: false,
+  },
 };
 
-const titlesApiUrl = "/resources/titles/?start=0&max=5&expandLevel=1&theme=";
+const titlesApiUrl = "/resources/titles/?start=0&max=50&expandLevel=1&theme=";
 
 export const getBooksByTheme = createAsyncThunk(
   "suggestionsByTheme/query",
@@ -62,11 +62,13 @@ export const recommendationsSlice = createSlice({
     addCategory: (state, action) => {
       state.categories.push(action.payload);
     },
+    toggleTag: (state, action) => {
+      state.tags[action.payload] = !state.tags[action.payload];
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(getBooksByTheme.pending, (state, action) => {
-        console.log(action);
         state.isLoading = true;
       })
       .addCase(getBooksByTheme.fulfilled, (state, action) => {
@@ -79,4 +81,5 @@ export const recommendationsSlice = createSlice({
   },
 });
 
-export const { reset, removeCategory } = recommendationsSlice.actions;
+export const { reset, removeCategory, addCategory, toggleTag } =
+  recommendationsSlice.actions;

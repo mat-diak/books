@@ -11,13 +11,17 @@ export const Wrapper = styled.nav`
   padding: 0.3em 1em;
 `;
 
-export const Heading = styled.a`
+export const Heading = styled.button`
   text-decoration: none;
   color: var(--blue-3);
-  display: block;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
 
   &:hover {
     opacity: 0.5;
+    cursor: pointer;
   }
 
   h1 {

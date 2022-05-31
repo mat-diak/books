@@ -18,6 +18,7 @@ export const Button = styled.button`
   &:hover {
     transform: scale(1.1);
     background-color: var(--green-1);
+    cursor: pointer;
   }
 
   transition: all 0.2s;
@@ -26,7 +27,7 @@ export const Button = styled.button`
 export const Gallery = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2%;
+  gap: 1em;
 
   margin-top: 3rem;
   padding: 1rem;

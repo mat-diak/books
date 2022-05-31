@@ -1,8 +1,7 @@
 import * as S from "../Styles";
 import SearchBar from "./SearchBar";
-import OutsideClickHandler from "react-outside-click-handler";
 import { useDispatch } from "react-redux";
-import { close } from "../store/searchSlice";
+import { reset } from "../store/mainSlice";
 import { UnderlineLightBlue } from "../styled-components/Blocks.styled";
 import Logo from "../../public/icon.png";
 
@@ -12,7 +11,7 @@ const Navbar = () => {
   return (
     <>
       <S.Navbar.Wrapper>
-        <S.Navbar.Heading href="/">
+        <S.Navbar.Heading onClick={() => dispatch(reset())}>
           <h1>
             <img src={Logo} alt="Book scout logo" />
             Books
