@@ -1,6 +1,7 @@
 import axios from "../config/axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { restructureResponse } from "../helpers/apiResponseStructure";
+import { toast } from "react-toastify";
 
 const initialState = {
   query: "",
@@ -13,9 +14,13 @@ const titlesApiUrl = "/resources/titles/?start=0&max=10&expandLevel=1&search=";
 
 export const fetchSearchBooks = createAsyncThunk(
   "search/query",
-  async (query) => {
-    const res = await axios.get(titlesApiUrl + query);
-    return res.data;
+  async (query, thunkAPI) => {
+    try {
+      const res = await axios.get(titlesApiUrl + query);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
 );
 
@@ -51,6 +56,10 @@ export const searchSlice = createSlice({
     builder
       .addCase(fetchSearchBooks.pending, (state, action) => {
         state.isLoading = true;
+      })
+      .addCase(fetchSearchBooks.rejected, (state, action) => {
+        state.isLoading = false;
+        toast.error(action.payload);
       })
       .addCase(fetchSearchBooks.fulfilled, (state, action) => {
         if (action.payload.title) {

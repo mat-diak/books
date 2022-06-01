@@ -1,6 +1,7 @@
 import axios from "../config/axios";
 import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import { restructureResponse } from "../helpers/apiResponseStructure";
+import { toast } from "react-toastify";
 
 const initialState = {
   results: [],
@@ -27,9 +28,13 @@ const titlesApiUrl = "/resources/titles/?start=0&max=500&expandLevel=1&theme=";
 
 export const getBooksByTheme = createAsyncThunk(
   "suggestionsByTheme/query",
-  async (theme) => {
-    const res = await axios.get(titlesApiUrl + theme);
-    return res.data;
+  async (theme, thunkAPI) => {
+    try {
+      const res = await axios.get(titlesApiUrl + theme);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
 );
 
@@ -98,6 +103,8 @@ export const recommendationsSlice = createSlice({
       state.isLoading = false;
       state.results = [];
       state.categories = {};
+      state.isError = false;
+      state.message = null;
     },
     removeCategory: (state, action) => {
       state.categories = [...state.categories].filter((category) => {
@@ -129,6 +136,10 @@ export const recommendationsSlice = createSlice({
         )
           .getUniqueByProperty("workid")
           .sort((a, b) => b.score - a.score);
+      })
+      .addCase(getBooksByTheme.rejected, (state, action) => {
+        state.isLoading = false;
+        toast.error(action.payload);
       });
   },
 });

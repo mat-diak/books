@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
 
 import Navbar from "./Navbar";
 import Book from "./Book";
@@ -16,6 +17,7 @@ const Dashboard = () => {
       <S.Dashboard>
         {book ? <Book key={book.isbn} book={book} /> : <Recommendations />}
       </S.Dashboard>
+      <ToastContainer />
     </>
   );
 };
