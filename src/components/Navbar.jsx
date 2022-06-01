@@ -2,7 +2,6 @@ import * as S from "../Styles";
 import SearchBar from "./SearchBar";
 import { useDispatch } from "react-redux";
 import { reset } from "../store/mainSlice";
-import { UnderlineLightBlue } from "../styled-components/Blocks.styled";
 import Logo from "../../public/icon.png";
 
 const Navbar = () => {
@@ -13,13 +12,13 @@ const Navbar = () => {
       <S.Navbar.Wrapper>
         <S.Navbar.Heading onClick={() => dispatch(reset())}>
           <h1>
-            <img src={Logo} alt="Book scout logo" />
+            <img src={Logo} alt="Books logo" />
             Books
           </h1>
         </S.Navbar.Heading>
         <SearchBar />
       </S.Navbar.Wrapper>
-      <UnderlineLightBlue />
+      <S.Blocks.Underline color="var(--blue-1)" weight="1px" />
     </>
   );
 };

@@ -5,27 +5,16 @@ import * as Animation from "../styled-components/Animations.styled.js";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import heroTemplate from "../../public/hero-template.png";
-import { getBooksByAuthor } from "../store/apiSlice.js";
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import Suggestions from "./Suggestions.jsx";
-import { getAmazonUrl, getImgUrl } from "../helpers.js";
+import { getAmazonUrl, getImgUrl } from "../helpers/links";
 
 const Book = ({ book }) => {
-  const bookSuggestions = useSelector((state) => state.api);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getBooksByAuthor(book.authorId[0]));
-  }, [book]);
-
   return (
     <Animation.FadeIn>
       <S.Book.Wrapper>
         <S.Book.Details>
           <S.Book.Heading>
-            <h2>{book.title}</h2>
-            <address>By {book.author}</address>
+            <S.Book.Title>{book.title}</S.Book.Title>
+            <S.Book.Author>By {book.author}</S.Book.Author>
           </S.Book.Heading>
           <S.Shared.ButtonLink href={getAmazonUrl(book.isbn)} target="_blank">
             <span>See on</span>
@@ -45,11 +34,10 @@ const Book = ({ book }) => {
               e.target.onerror = null;
               e.target.src = heroTemplate;
             }}
-            alt="something"
+            alt={`${book.title} book cover`}
           />
         </S.Book.CoverContainer>
       </S.Book.Wrapper>
-      <Suggestions items={bookSuggestions.results} />
     </Animation.FadeIn>
   );
 };

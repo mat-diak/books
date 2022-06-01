@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { mainSlice } from "./mainSlice";
 import { searchSlice } from "./searchSlice";
-import { apiSlice } from "./apiSlice";
 import { recommendationsSlice } from "./RecommendationsSlice";
 
 export const store = configureStore({

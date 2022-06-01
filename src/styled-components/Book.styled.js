@@ -4,20 +4,21 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  max-width: 1000px;
   gap: 2%;
+  max-width: 1000px;
+
   margin-bottom: 3rem;
+  margin-top: 2rem;
 `;
 
 export const CoverContainer = styled.div`
-  border-left: 1px solid var(--pink-2);
-  border-right: 1px solid var(--pink-2);
-  border-bottom: 5px solid var(--pink-2);
-
   margin-top: 2rem;
   padding: 0 2rem 2rem 2rem;
 
   border-radius: 0 0 15px 15px;
+  border-left: 1px solid var(--pink-2);
+  border-right: 1px solid var(--pink-2);
+  border-bottom: 5px solid var(--pink-2);
 `;
 
 export const Hero = styled.img`
@@ -34,29 +35,31 @@ export const Details = styled.div`
   flex-flow: column;
   gap: 5%;
   order: 1;
+
   padding-left: 3em;
 `;
 
 export const Heading = styled.div`
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
   width: fit-content;
 
-  h2 {
-    font-family: var(--font-1);
-    font-size: 2rem;
-  }
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+`;
 
-  address {
-    font-family: var(--font-2);
-    font-style: normal;
-    font-size: 90%;
+export const Author = styled.address`
+  font-family: var(--font-2);
+  font-style: normal;
+  font-size: 90%;
 
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 
-    opacity: 0.6;
-    text-align: right;
-  }
+  opacity: 0.6;
+  text-align: right;
+`;
+
+export const Title = styled.h2`
+  font-family: var(--font-1);
+  font-size: 2rem;
 `;
 
 export const Description = styled.div`

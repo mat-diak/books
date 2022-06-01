@@ -6,7 +6,6 @@ import * as SearchBar from "./styled-components/SearchBar.styled";
 import * as Result from "./styled-components/Result.styled";
 import * as Blocks from "./styled-components/Blocks.styled";
 import * as Recommendations from "./styled-components/Recommendations.styled";
-import * as Suggestions from "./styled-components/Suggestions.styled";
 
 export {
   Book,
@@ -17,5 +16,4 @@ export {
   Result,
   Blocks,
   Recommendations,
-  Suggestions,
 };

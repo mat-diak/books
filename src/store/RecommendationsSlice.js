@@ -23,8 +23,7 @@ const initialState = {
   },
 };
 
-const titlesApiUrl =
-  "/resources/titles/?start=0&max=50000&expandLevel=1&theme=";
+const titlesApiUrl = "/resources/titles/?start=0&max=500&expandLevel=1&theme=";
 
 export const getBooksByTheme = createAsyncThunk(
   "suggestionsByTheme/query",

@@ -4,11 +4,10 @@ export const Group = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
+  margin-top: 0px;
 
   border-radius: 5px;
   border: 1px solid var(--pink-2);
-
-  margin-top: 0px;
 `;
 
 export const SearchResults = styled(Group)`
@@ -27,14 +26,16 @@ export const SearchResults = styled(Group)`
 `;
 
 export const Wrapper = styled.li`
-  margin-top: 1px;
-  padding: 0.3em;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
+
   background-color: white;
+
+  margin-top: 1px;
+  padding: 0.3em;
+  width: 100%;
   border-radius: 5px;
 
   &:hover {

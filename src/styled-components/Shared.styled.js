@@ -1,15 +1,17 @@
 import styled from "styled-components";
 
 export const ButtonLink = styled.a`
-  text-decoration: none;
-  background-color: var(--orange-1);
-  width: 140px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  text-decoration: none;
+  background-color: var(--orange-1);
+  color: var(--black);
+
+  width: 140px;
   padding: 0.4em;
   border-radius: 5px;
-  color: var(--black);
   margin-bottom: 2em;
 
   &:hover {

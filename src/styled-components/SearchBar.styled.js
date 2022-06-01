@@ -13,17 +13,12 @@ export const InputWrapper = styled.div`
 `;
 
 export const InputIcon = styled.div`
-  width: 20px;
-
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: large;
 
-  animation-duration: 0.5s;
-  animation-name: animate-fade;
-  animation-delay: 0.2s;
-  animation-fill-mode: backwards;
+  width: 20px;
 
   .clickable:hover {
     cursor: pointer;
@@ -32,18 +27,20 @@ export const InputIcon = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 400px;
-  border-radius: 5px;
-  min-height: 30px;
   position: relative;
-  margin: auto;
-  margin-left: 0.3rem;
-  font-size: 1rem;
-  border: none;
-  outline: none;
 
   background-color: transparent;
   color: var(--grey-3);
+
+  width: 400px;
+  border-radius: 5px;
+  min-height: 30px;
+  font-size: 1rem;
+
+  margin: auto;
+  margin-left: 0.3rem;
+  border: none;
+  outline: none;
 
   &:focus::placeholder {
     color: transparent;

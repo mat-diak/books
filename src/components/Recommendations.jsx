@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "./RecommendationButton";
 import * as S from "../Styles";
 import { useDispatch, useSelector } from "react-redux";
 import { getImgUrl } from "../helpers/links";
@@ -39,8 +39,12 @@ const Recommendations = () => {
                   />
                   <S.Recommendations.DetailsOverlay id="overlay">
                     <S.Recommendations.Heading>
-                      <h3>{book.title}</h3>
-                      <address>{book.author}</address>
+                      <S.Recommendations.Title>
+                        {book.title}
+                      </S.Recommendations.Title>
+                      <S.Recommendations.Author>
+                        {book.author}
+                      </S.Recommendations.Author>
                     </S.Recommendations.Heading>
                   </S.Recommendations.DetailsOverlay>
                 </S.Recommendations.ImageWrapper>
