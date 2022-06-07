@@ -18,9 +18,9 @@ const GlobalStyles = createGlobalStyle`
   
   --pink-2: #F2EAE4;
   
-  --grey-1: #EEEEEE;
-  --grey-2: #8D8D8D;
-  --grey-3: #737373;
+  --grey-1: #e4e4e4;
+  --grey-2: #727272;
+  --grey-3: #484848;
 
   --black: #040404;
 }

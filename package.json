@@ -36,6 +36,7 @@
     "@fortawesome/react-fontawesome": "^0.1.18",
     "@reduxjs/toolkit": "^1.8.1",
     "axios": "^0.27.2",
+    "cypress": "^10.0.3",
     "install": "^0.13.0",
     "lodash.debounce": "^4.0.8",
     "npm": "^8.9.0",
