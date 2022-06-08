@@ -3,7 +3,7 @@ import Result from "./Result";
 
 import * as S from "../Styles";
 
-const ResultsList = () => {
+const ResultsList = ({ handleClick }) => {
   const search = useSelector((state) => state.search);
 
   return (
@@ -11,7 +11,7 @@ const ResultsList = () => {
       <S.Result.SearchResults>
         {!search.isLoading &&
           search.matches.map((title) => (
-            <Result key={title.isbn} title={title} />
+            <Result handleClick={handleClick} key={title.isbn} title={title} />
           ))}
       </S.Result.SearchResults>
     </>

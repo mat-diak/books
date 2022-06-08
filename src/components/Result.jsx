@@ -1,7 +1,7 @@
 import * as S from "../Styles";
 import thumbnailTemplate from "../../public/thumbnail-template.png";
 
-const Result = ({ title }) => {
+const Result = ({ title, handleClick }) => {
   const getImageUrl = (isbn) => {
     return `https://reststop.randomhouse.com/resources/titles/${isbn}`;
   };

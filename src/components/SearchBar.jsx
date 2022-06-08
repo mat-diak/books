@@ -34,7 +34,7 @@ const SearchBar = () => {
     []
   );
 
-  handleChange = (e) => {
+  const handleChange = (e) => {
     dispatch(updateQuery(e.target.value));
     if (e.target.value.length > 0) {
       debouncedMakeQuery(e.target.value);
@@ -43,7 +43,7 @@ const SearchBar = () => {
     }
   };
 
-  handleClick = (book) => {
+  const handleClick = (book) => {
     dispatch(selectTitle(book));
     dispatch(close());
   };
@@ -84,7 +84,7 @@ const SearchBar = () => {
             dispatch(close());
           }}
         >
-          <ResultsList />
+          <ResultsList handleClick={handleClick} />
         </OutsideClickHandler>
       )}
     </S.SearchBar.Wrapper>

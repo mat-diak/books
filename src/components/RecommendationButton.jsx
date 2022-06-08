@@ -4,7 +4,7 @@ import {
   getBooksByTheme,
   removeCategory,
   toggleTag,
-} from "../store/recommendationsSlice";
+} from "../store/RecommendationsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
