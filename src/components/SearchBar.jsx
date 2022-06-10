@@ -15,7 +15,6 @@ import {
   open,
   updateQuery,
 } from "../store/searchSlice";
-import { selectTitle } from "../store/mainSlice";
 import debounce from "lodash.debounce";
 import * as S from "../Styles";
 import * as Animation from "../styled-components/Animations.styled";
@@ -43,11 +42,6 @@ const SearchBar = () => {
     }
   };
 
-  handleClick = (book) => {
-    dispatch(selectTitle(book));
-    dispatch(close());
-  };
-
   return (
     <S.SearchBar.Wrapper>
       <S.SearchBar.InputWrapper>
@@ -59,9 +53,10 @@ const SearchBar = () => {
           ) : search.query ? (
             <Animation.FadeIn key="2">
               <FontAwesomeIcon
+                onClick={() => dispatch(reset())}
                 className="clickable"
                 icon={faXmark}
-                onClick={() => dispatch(reset())}
+                data-cy="clear-search"
               />
             </Animation.FadeIn>
           ) : (
@@ -71,11 +66,12 @@ const SearchBar = () => {
           )}
         </S.SearchBar.InputIcon>
         <S.SearchBar.Input
+          onChange={handleChange}
+          onClick={() => dispatch(open())}
           type="text"
           placeholder="Quick search"
           value={search.query}
-          onChange={handleChange}
-          onClick={() => dispatch(open())}
+          data-cy="search-input"
         />
       </S.SearchBar.InputWrapper>
       {search.isOpen && (

@@ -8,7 +8,7 @@ const ResultsList = () => {
 
   return (
     <>
-      <S.Result.SearchResults>
+      <S.Result.SearchResults data-cy="search-results">
         {!search.isLoading &&
           search.matches.map((title) => (
             <Result key={title.isbn} title={title} />
