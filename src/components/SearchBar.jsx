@@ -48,7 +48,11 @@ const SearchBar = () => {
         <S.SearchBar.InputIcon>
           {search.isLoading ? (
             <Animation.FadeIn key="1">
-              <FontAwesomeIcon icon={faCircleNotch} className="fa-spin" />
+              <FontAwesomeIcon
+                icon={faCircleNotch}
+                className="fa-spin"
+                data-testid="search-loading"
+              />
             </Animation.FadeIn>
           ) : search.query ? (
             <Animation.FadeIn key="2">
@@ -72,6 +76,7 @@ const SearchBar = () => {
           placeholder="Quick search"
           value={search.query}
           data-cy="search-input"
+          data-testid="search-input"
         />
       </S.SearchBar.InputWrapper>
       {search.isOpen && (
@@ -80,7 +85,7 @@ const SearchBar = () => {
             dispatch(close());
           }}
         >
-          <ResultsList handleClick={handleClick} />
+          <ResultsList />
         </OutsideClickHandler>
       )}
     </S.SearchBar.Wrapper>

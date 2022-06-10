@@ -8,7 +8,10 @@ const ResultsList = ({ handleClick }) => {
 
   return (
     <>
-      <S.Result.SearchResults data-cy="search-results">
+      <S.Result.SearchResults
+        data-cy="search-results"
+        data-testid="search-results"
+      >
         {!search.isLoading &&
           search.matches.map((title) => (
             <Result handleClick={handleClick} key={title.isbn} title={title} />

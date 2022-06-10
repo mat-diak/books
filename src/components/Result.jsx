@@ -2,13 +2,12 @@ import * as S from "../Styles";
 import { selectTitle } from "../store/mainSlice";
 import { close } from "../store/searchSlice";
 import { useDispatch } from "react-redux";
-import thumbnailTemplate from "../../public/thumbnail-template.png";
 import { getImgUrl } from "../helpers/links";
 
 const Result = ({ title }) => {
   const dispatch = useDispatch();
 
-  handleClick = (book) => {
+  const handleClick = (book) => {
     dispatch(selectTitle(book));
     dispatch(close());
   };
@@ -28,7 +27,7 @@ const Result = ({ title }) => {
         alt={title.title + "book cover image"}
         onError={(e) => {
           e.target.onerror = null;
-          e.target.src = thumbnailTemplate;
+          e.target.src = "/thumbnail-template.png";
         }}
       />
     </S.Result.Wrapper>
