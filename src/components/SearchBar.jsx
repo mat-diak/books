@@ -61,6 +61,7 @@ const SearchBar = () => {
                 className="clickable"
                 icon={faXmark}
                 data-cy="clear-search"
+                data-testid="search-clear"
               />
             </Animation.FadeIn>
           ) : (
@@ -79,7 +80,7 @@ const SearchBar = () => {
           data-testid="search-input"
         />
       </S.SearchBar.InputWrapper>
-      {search.isOpen && (
+      {search.isOpen && !search.isLoading && (
         <OutsideClickHandler
           onOutsideClick={() => {
             dispatch(close());

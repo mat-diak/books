@@ -13,7 +13,11 @@ const Result = ({ title }) => {
   };
 
   return (
-    <S.Result.Wrapper onClick={() => handleClick(title)} key={title.isbn}>
+    <S.Result.Wrapper
+      onClick={() => handleClick(title)}
+      key={title.isbn}
+      data-testid="search-result"
+    >
       <S.Result.Info>
         <S.Result.Title data-cy="search-result-title">
           {title.title}
