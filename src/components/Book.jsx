@@ -10,11 +10,13 @@ import { getAmazonUrl, getImgUrl } from "../helpers/links";
 const Book = ({ book }) => {
   return (
     <Animation.FadeIn>
-      <S.Book.Wrapper>
+      <S.Book.Wrapper data-cy="book-page">
         <S.Book.Details>
           <S.Book.Heading>
-            <S.Book.Title>{book.title}</S.Book.Title>
-            <S.Book.Author>By {book.author}</S.Book.Author>
+            <S.Book.Title data-cy="book-page-title">{book.title}</S.Book.Title>
+            <S.Book.Author data-cy="book-page-author">
+              By {book.author}
+            </S.Book.Author>
           </S.Book.Heading>
           <S.Shared.ButtonLink href={getAmazonUrl(book.isbn)} target="_blank">
             <span>See on</span>
