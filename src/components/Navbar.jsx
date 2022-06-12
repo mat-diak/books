@@ -2,6 +2,7 @@ import * as S from "../Styles";
 import SearchBar from "./SearchBar";
 import { useDispatch } from "react-redux";
 import { reset } from "../store/mainSlice";
+import Logo from "../../public/icon.png";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -10,8 +11,8 @@ const Navbar = () => {
     <>
       <S.Navbar.Wrapper>
         <S.Navbar.Heading onClick={() => dispatch(reset())}>
-          <h1 data-testid="home-button">
-            <img src="/icon.png" alt="Books logo" />
+          <h1>
+            <img src={Logo} alt="Books logo" />
             Books
           </h1>
         </S.Navbar.Heading>
