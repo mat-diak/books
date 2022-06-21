@@ -5,29 +5,12 @@
 import { render, screen, waitFor } from "../../utils/test-utils";
 import userEvent from "@testing-library/user-event";
 import SearchBar from "../SearchBar";
-import { server } from "../../__mocks__/server";
-import "@testing-library/jest-dom/extend-expect";
 import Navbar from "../Navbar";
-import * as extra from "../SearchBar";
 
 const searchResultsTestId = "search-results";
 const searchInputTestId = "search-input";
 const searchLoadingTestId = "search-loading";
 const searchCloseTestId = "search-clear";
-
-jest.setTimeout(20000);
-
-beforeAll(() => {
-  server.listen();
-});
-
-afterEach(() => {
-  server.resetHandlers();
-});
-
-afterAll(() => {
-  server.close();
-});
 
 test("does not shows results ON intial render ", () => {
   render(<SearchBar />);

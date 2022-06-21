@@ -1,4 +1,4 @@
-const response = {
+export default {
   "@uri":
     "https://reststop.randomhouse.com/resources/titles/?start=0&max=10&expandLevel=1&search=pooh",
   title: [
@@ -1388,5 +1388,3 @@ const response = {
     },
   ],
 };
-
-export default response;

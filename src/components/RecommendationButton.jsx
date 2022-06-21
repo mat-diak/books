@@ -32,7 +32,11 @@ const Button = ({ tag }) => {
       <S.Recommendations.LoadingOverlay>
         {isLoading && categories.at(-1) === tag && (
           <Animation.FadeIn key="1">
-            <FontAwesomeIcon icon={faCircleNotch} className="fa-spin" />
+            <FontAwesomeIcon
+              icon={faCircleNotch}
+              className="fa-spin"
+              data-testid="loading_icon"
+            />
           </Animation.FadeIn>
         )}
       </S.Recommendations.LoadingOverlay>

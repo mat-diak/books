@@ -1,4 +1,4 @@
-describe("search bar", () => {
+describe("user searches for a book", () => {
   beforeEach(() => {
     cy.visit("/");
 

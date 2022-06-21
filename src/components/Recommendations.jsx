@@ -17,18 +17,19 @@ const Recommendations = () => {
         What are you interested in?
       </S.Recommendations.Header>
       <S.Recommendations.ChoiceWrapper>
-        {Object.keys(tags).map((tag) => (
-          <Button tag={tag} key={tag} />
+        {Object.keys(tags).map((tag, idx) => (
+          <Button tag={tag} key={tag} idx={idx} />
         ))}
       </S.Recommendations.ChoiceWrapper>
       {matches.length > 0 && (
         <Animation.FadeIn>
-          <S.Recommendations.Gallery>
+          <S.Recommendations.Gallery data-testid="recommendations_gallery">
             {matches.map((book) => {
               return (
                 <S.Recommendations.ImageWrapper
                   key={book.isbn}
                   onClick={() => dispatch(selectTitle(book))}
+                  data-testid="book_item"
                 >
                   <S.Recommendations.Image
                     src={getImgUrl(book.isbn)}
